@@ -10,32 +10,33 @@ var xoff = 0.0;
 var yoff = 0.0;
 for(var x = 0; x < 500; x++) {
   for(var y = 0; y < 500; y++) {
-    var red = noise(xoff+100000, yoff+100000) * 255;
-    var green = noise(xoff+1000000, yoff+1000000) * 255;
-    var blue = noise(xoff+10000000, yoff+10000000) * 255;
+    var value = noise(xoff, yoff);
     var pixel = (x * 500 * 4) + (y * 4);
 
-    if (blue < 255*0.5) {
+    if (value < 0.5) {
       imgData.data[pixel] = 0;
       imgData.data[pixel+1] = 0;
       imgData.data[pixel+2] = 255;
     }
-    else {
-      if(red < 255*0.4) {
+    else if (0.5 < value && value <= 0.625 ) {
         imgData.data[pixel] = 255;
         imgData.data[pixel+1] = 0;
         imgData.data[pixel+2] = 0;
-      }
-      else if (green < 255*0.4) {
+    }
+    else if (0.625 < value && value <= 0.75 ) {
         imgData.data[pixel] = 0;
         imgData.data[pixel+1] = 255;
         imgData.data[pixel+2] = 0;
-      }
-      else {
+    }
+    else if (0.75 < value && value <= 0.875 ) {
         imgData.data[pixel] = 0;
         imgData.data[pixel+1] = 0;
         imgData.data[pixel+2] = 0;
-      }
+    }
+    else {
+        imgData.data[pixel] = 255;
+        imgData.data[pixel+1] = 255;
+        imgData.data[pixel+2] = 255;
     }
     //console.log(color);
     imgData.data[pixel+3] = 255;
