@@ -18,17 +18,17 @@ for(var x = 0; x < 500; x++) {
       imgData.data[pixel+1] = 0;
       imgData.data[pixel+2] = 255;
     }
-    else if (0.5 < value && value <= 0.625 ) {
+    else if (0.5 < value && value <= 0.52 ) {
         imgData.data[pixel] = 255;
         imgData.data[pixel+1] = 0;
         imgData.data[pixel+2] = 0;
     }
-    else if (0.625 < value && value <= 0.75 ) {
+    else if (0.52 < value && value <= 0.7 ) {
         imgData.data[pixel] = 0;
         imgData.data[pixel+1] = 255;
         imgData.data[pixel+2] = 0;
     }
-    else if (0.75 < value && value <= 0.875 ) {
+    else if (0.7 < value && value <= 0.75 ) {
         imgData.data[pixel] = 0;
         imgData.data[pixel+1] = 0;
         imgData.data[pixel+2] = 0;
@@ -40,10 +40,10 @@ for(var x = 0; x < 500; x++) {
     }
     //console.log(color);
     imgData.data[pixel+3] = 255;
-    yoff += 0.01;
+    yoff += 0.05;
   }
   yoff = 0.0;
-  xoff += 0.01;
+  xoff += 0.05;
 }
 console.log("done");
 ctx.putImageData(imgData, 0, 0);
